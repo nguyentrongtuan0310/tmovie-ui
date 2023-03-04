@@ -1,0 +1,45 @@
+@use '../../scss' as *;
+.footer {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    &__container {
+        max-width: 1000px;
+    }
+}
+.logo {
+    width: 100%;
+    font-size: 2.5rem;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    & img {
+        width: 50px;
+        object-fit: contain;
+        margin-right: 10px;
+    }
+}
+.footer__container__menus {
+    width: 1000px;
+
+    display: flex;
+}
+.footer__container__menu {
+    width: 33.3333%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    & > * ~ * {
+        margin-top: 1rem;
+    }
+}

@@ -1,0 +1,82 @@
+@use '../../scss/' as *;
+.hero-slide {
+    margin-bottom: 3rem;
+    &__item {
+        position: relative;
+        width: 100%;
+        padding: 9rem 0;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-image: linear-gradient(to top, #0f0f0f, rgba(0, 0, 0, 0));
+        }
+        &__content {
+            @include flex(center, center);
+        }
+
+        &__info {
+            width: 51%;
+            padding: 0 3rem;
+            position: relative;
+            font-weight: 700;
+            @include tablet {
+                display: none;
+            }
+            .title {
+                font-size: 80px;
+                opacity: 0;
+                transform: translateY(-100px);
+                transition: transform 0.5s ease 0.3s, opacity 0.5s ease 0.3s;
+            }
+            .overview,
+            .btns {
+                margin-top: 3rem;
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            .btns {
+                transition: transform 0.5s ease 0.6s, opacity 0.5s ease 0.6s;
+            }
+            .overview {
+                transition: transform 0.5s ease 0.9s, opacity 0.5s ease 0.9s;
+            }
+        }
+        &__poster {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            img {
+                width: 400px;
+                border-radius: 30px;
+                box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+                transition: transform 0.7s ease;
+                transform: scale(0);
+            }
+        }
+        &.active > &__content > &__poster img {
+            transform: scale(1);
+        }
+        &.active > &__content > &__info > .title,
+        &.active > &__content > &__info > .overview,
+        &.active > &__content > &__info > .btns {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}

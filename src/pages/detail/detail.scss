@@ -1,0 +1,90 @@
+@use '../../scss/' as *;
+.banner {
+    height: 50vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background-image: linear-gradient(to top, #0f0f0f, rgba(0, 0, 0, 0));
+    }
+}
+.movie-content {
+    @include flex(flex-start, flex-start);
+    max-width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -200px;
+    position: relative;
+    padding: 0 2rem;
+    &__poster {
+        flex: 1;
+        @include mobile {
+            display: none;
+        }
+        &__img {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 30px;
+            padding-top: 165%;
+        }
+    }
+    &__info {
+        width: 70%;
+        padding-left: 2rem;
+        position: relative;
+        & > * {
+            margin-bottom: 2rem;
+        }
+        .title {
+            font-size: 4rem;
+            line-height: 1;
+        }
+        .genres {
+            &__item {
+                padding: 0.5rem 1.5rem;
+                border: 2px solid #fff;
+                border-radius: 30px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                background-color: #0f0f0f;
+            }
+            & > * ~ * {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}
+.casts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    grid-gap: 10px;
+    gap: 10px;
+    &-item {
+        &__img {
+            padding-top: 160px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            font-size: 0.8rem;
+        }
+    }
+}
